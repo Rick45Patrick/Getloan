@@ -79,11 +79,32 @@ button:hover{
 </div>
 <div class="form">
     <h1>Log in to your Getloan account</h1>
-    <input class="name" type="name" id="name" placeholder="Enter your number or name">
+    <input class="name" type="name" id="name" placeholder="Enter your name">
     <input class="pass" type="password" id="pass" placeholder="Enter your password">
+    <p id="message"></p>
     <button id="pbutton">Log in</button>
 </div>
 </div>
+<script>
+    document.getElementById('pbutton').addEventListener('click',function(){
+        var name = document.getElementById('name').value;
+        var message = document.getElementById('message');
+        var pass = document.getElementById('pass').value;
 
+        if(name === "Frank" && pass === "@Frank456" || name === "Patrick" && pass === "@rick123"){
+            message.textContent = "log in successful"
+            message.style.color = "green"
+        }else if(name === ""){
+            message.textContent = "Fill your name"
+            message.style.color = "red"
+        }else if(pass === ""){
+            message.textContent = "Fill your password"
+            message.style.color = "red"
+        }else{
+            message.textContent = "access denied"
+            message.style.color = "red"
+        }
+    });
+</script>
 </body>
 </html>
